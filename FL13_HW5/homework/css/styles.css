@@ -1,0 +1,523 @@
+/*
+ * Feel free to change name of colors if you need it
+ * Feel free to add new colors if you need it
+ */
+/* 
+:root {
+  --bg-color--dark: #0b192f;
+  --bg-color--medium: #162b4d;
+  --text--color: #484848;
+  --link: #fff;
+  --link--hover: #b8b8b8;
+} */
+
+
+.post-1 {
+	background: #F3D250;
+}
+.post-2 {
+	background: #8D8741;
+}
+.post-3 {
+	background: #659DBD;
+}
+.post-4 {
+	background: #DAAD86;
+} 
+
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: roboto;
+  color: #484848;
+  background: #0b192f;
+}
+
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 93%;
+}
+
+
+header {
+  margin-bottom: 18px;
+  background:  #162b4d; 
+}
+
+
+header .container {
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.logo {
+  margin: 0 8px;
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+.logo a{
+  padding: 10px;
+  color: #fff; 
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.logo a span {
+  color: red;
+  font-weight: 200;
+}
+
+.burger-menu{
+  display: none;
+  color: #fff;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+}
+
+nav li {
+  margin: 0 10px;
+  padding: 30px 20px;
+  list-style-type: none;
+  font-size: 14px;
+}
+
+nav li:hover {
+  background: #b8b8b8;
+}
+
+nav  a {
+  color: #fff; 
+  font-weight: 300; 
+  padding: 30px 20px;
+  text-decoration: none;
+}
+
+main {
+  margin-bottom: 15px;
+}
+
+.content {
+  display: flex;
+  flex-basis: 75%;
+  flex-direction: column;
+}
+
+.post {
+  display: flex;
+  border: 1px solid #484848;
+}
+
+.post-img-box {
+  display: flex;
+  flex-basis: 50%;
+  height: auto;
+}
+
+.post-img-box img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.post-img-box:hover {
+  filter: opacity(0.4);
+}
+
+.post-content {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: center;
+  flex-direction: row-reverse;
+  padding-bottom: 10px;
+}
+
+.post-content:hover {
+  filter: opacity(0.4);
+}
+
+.post-content .date {
+  font-weight: 300;
+  padding: 13px 5%;
+  display: flex;
+  flex: 0 0 14%;
+}
+
+.post-content .date span {
+  font-size: 37px;
+}
+
+.post-article {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px 0 25px;
+}
+
+.post-article h2,
+.article-news h3,
+.post-summary h2 {
+  line-height: 1;
+  font-size: 30px;
+  font-weight: 300;
+  word-spacing: 3px;
+  letter-spacing: -2px;
+  padding: 30px 10px 17px 0;
+}
+
+
+.post-article p,
+.article-news p,
+.post-summary p,
+footer {
+  line-height: 2;
+  font-size: 11px;
+  word-spacing: -1px;
+}
+
+.post-summary {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  padding: 170px 20px 80px;
+  border: 1px solid #484848;
+  background-image: url(../img/post5.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(25% - 15px);
+  margin-left: 15px;
+}
+
+ 
+.news {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #484848;
+  margin-bottom: 15px;
+}
+
+.news-img-box {
+  width: 100%;
+  height: auto;
+}
+
+.news-img-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+.article-news {
+  background: #fff;
+  padding-bottom: 18px;
+  padding: 0 7% 15px;
+}
+
+.article-news button {
+  padding: 10px;
+  font-size: 10px;
+  margin-top: 15px;
+  text-transform: uppercase;
+  border: 1px solid #484848;
+  background: #fff;
+}
+
+.article-news button:hover {
+  border: none;
+  border-bottom: 1px solid #484848;
+}
+
+footer {
+  padding: 20px 0;
+  color: rgba(158, 157, 157, 0.829);
+  background:  #162b4d; 
+}
+
+footer .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+} 
+
+
+
+@media screen and (max-width: 1400px) {
+  .post {
+    flex-direction: row;
+  }
+
+ .post:nth-child(odd) {
+   flex-direction: row;
+  }
+
+  .post:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .post:nth-child(even) .date {
+    order: 1;
+  }
+
+  .post:nth-child(even) .post-article {
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 7%;
+  } 
+
+  .post-article {
+    flex: 0 0 calc(86% - 30px);
+    padding: 0 5px 0 25px;
+  }
+}
+ 
+
+@media screen and (max-width: 768px) {
+  header {
+    margin-bottom: 24px;
+    padding: 30px 0 37px;
+  }
+
+  header .container {
+    flex-direction: column-reverse;
+  }
+
+  .burger-menu{
+    display: flex;
+    margin-bottom: 76px;
+  }  
+
+  .logo {
+    font-size: 39px;
+  }
+
+  nav ul {
+      display: none;
+  }
+
+  .content {
+    flex-basis: 70%;
+  }
+
+  .post {
+    flex-direction: column;
+  }
+  
+  .post:nth-child(odd) {
+    flex-direction: column;
+  }
+  
+  .post:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .post:nth-child(even) .date {
+    order: initial;
+  }
+  
+  .post:nth-child(even) .post-article {
+    align-items: initial;
+    text-align: initial;
+    padding: 0;
+  } 
+
+  .post-img-box {
+    flex-basis: 100%;
+  }
+
+  .post-content {
+    padding: 0 5%;
+    flex-basis: 100%;
+    flex-direction: column-reverse;
+  }
+
+  .post-article {
+    padding: 0;
+    margin: 10px 0;
+    flex: 0 0 60%;
+  }
+  
+  .post-content .date {
+    justify-content: center;
+  }
+
+  .post-article h2,
+  .article-news h3,
+  .post-summary h2 {
+    font-size: 25px;
+    padding: 20px 0 10px 0;
+  }
+  
+  
+  .post-article p,
+  .article-news p,
+  .post-summary p,
+  footer {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .post-summary {
+    padding: 100px 15px 70px;
+
+  }
+
+  aside {
+    flex-basis: calc(30% - 15px);
+  }
+
+  .article-news button {
+    padding: 7px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+
+  footer .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  } 
+
+  footer div {
+    padding-bottom: 10px;
+  }
+} 
+
+
+
+@media screen and (max-width: 480px) {
+  header {
+    padding: 20px 0 27px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header .container {
+    flex-direction: column-reverse;
+  }
+  
+  .burger-menu{
+    display: flex;
+    margin-bottom: 50px;
+  }  
+  
+  nav ul {
+     display: none;
+  }
+  
+  .content {
+    flex-basis: 100%;
+    margin-bottom: 15px;
+  }
+
+  .post {
+    flex-direction: column;
+    border-top: none;
+  }
+
+  .post-img-box {
+    flex-basis: 100%;
+  }
+
+  .post-content {
+    flex-basis: 100%;
+    flex-direction: column-reverse;
+    padding: 0 5%;
+  }
+
+  .post:nth-child(even) .date {
+    order: initial;
+  }
+    
+  .post:nth-child(even) .post-article {
+    align-items: initial;
+    text-align: initial;
+    padding: 0;
+  } 
+  
+  .post-article {
+    padding: 0;
+    margin: 10px 0;
+  }
+    
+  .post-content .date {
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  .post-article h2,
+  .article-news h3,
+  .post-summary h2 {
+    font-size: 20px;
+    word-spacing: unset;
+    letter-spacing: unset;
+    padding: 20px 0 10px 0;
+  }
+    
+  .post-article p,
+  .article-news p,
+  .post-summary p,
+  footer {
+    font-size: 10px;
+    line-height: 1.5;
+    word-spacing: unset;
+  }
+
+  .post-summary {
+    padding: 100px 15px 70px;
+  }
+
+  aside {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .news {
+    margin: 0 auto 15px;
+  }
+  
+  .article-news button {
+    padding: 5px;
+    margin-top: 15px;
+    font-size: 8px;
+  }
+  
+  footer .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  } 
+
+  footer div {
+    padding-bottom: 8px;
+  }
+}
+
+
+
+
