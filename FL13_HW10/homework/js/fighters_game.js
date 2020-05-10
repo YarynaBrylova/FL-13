@@ -90,3 +90,4 @@ const myFighter2 = new Fighter({
 });
 
 battle(myFighter, myFighter2);
+
