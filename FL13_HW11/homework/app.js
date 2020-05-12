@@ -52,7 +52,6 @@ const data = [
 
 const rootNode = document.getElementById('root');
 
-//-----create tree starts -----
 function createTreeDom(arr) {
   if (!arr.length) {
     return;
@@ -80,7 +79,6 @@ function createTree(container, arr) {
 
 createTree(rootNode, data);
 
-//create element- context menu
 let menuBlock = document.createElement('ul');
 let remove = null;
 let edit = null;
@@ -99,7 +97,6 @@ function createContextMenu() {
 
 rootNode.append(createContextMenu());
 
-//open context menu
 rootNode.addEventListener('contextmenu', event => {
   event.preventDefault();
   menuBlock.style.top = `${event.clientY}px`;
@@ -112,17 +109,14 @@ rootNode.addEventListener('contextmenu', event => {
   })
 })
 
-//close context menu
 document.addEventListener('click', () => {
   menuBlock.classList.remove('active');
 })
 
-//don't close menu when you press to menu options
 menuBlock.addEventListener('click', event => {
   event.stopPropagation();
 })
 
-//hide and show elements
 for (let li of rootNode.querySelectorAll('li')) {
   let span = document.createElement('span');
   li.prepend(span);
