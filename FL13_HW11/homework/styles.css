@@ -1,0 +1,28 @@
+.context-menu {
+    margin: 0;
+    padding: 10px;
+    position: fixed;
+    list-style: none;
+    background: white;
+    display: none;
+    z-index: 1;
+}
+
+.context-menu li {
+    padding: 5px 0;
+}
+
+.context-menu li:hover,
+.context-menu li:focus {
+    background: #dfdfdf;
+}
+
+.context-menu.active {
+    display: block;
+    box-shadow: 2px 3px 3px 2px #dfdfdf;
+    border-radius: 3px;
+}
+
+.hidden {
+    display: none;
+}
