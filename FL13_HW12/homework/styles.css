@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    background: rgb(189, 207, 186);
+}
+
+#book-list-block, 
+#modify-block {
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+#modify-block {
+    text-align: center;
+}
+
+
+#description {
+    margin-top: 15px;
+}
+
+form {
+    display: none;
+    padding:  0 359px;
+}
+
+ol {
+    margin: 0;
+    font-size: 20px;
+    color: rgb(45, 45, 97);
+}
+
+li {
+    padding: 12px;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+label {
+    font-size: 20px;
+}
+
+input {
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.show {
+    display: block;
+} 
+
+.hide {
+    display: none;
+} 
