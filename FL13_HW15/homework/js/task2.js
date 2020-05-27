@@ -1,4 +1,4 @@
-function Vehicle (color, engine) {
+function Vehicle(color, engine) {
     this.color = color,
     this.engine = engine, 
     this.maxSpeed = 70,
@@ -6,169 +6,117 @@ function Vehicle (color, engine) {
     this.isStopping = true,
     this.currentSpeed = 0;
     this.driveIndex = 0;
+    this.maxCuurentSpeed = this.currentSpeed;
 
-    this.getInfo = function() {
-        return `color: ${this.color}, engine: ${this.engine}, maxSpeed: ${this.maxSpeed}`
-    }
 
-    this.drive = function() {
-        if (!this.isDriving) {
-            this.isDriving = true;
-            this.isStopping = false;
-            const increaseSpeedTime = 2000;
-            this.driveIndex = setInterval(() => {
-                this.currentSpeed += 20;
-                console.log(this.currentSpeed);
-                if (this.currentSpeed > this.maxSpeed) {
-                    console.log('Speed is too high, SLOW DOWN!')
-                } 
-            }, increaseSpeedTime); 
-        }else {
-            console.log('Already driving');
-        }
-    }  
-
-    this.stop = function() {
-        if (!this.isStopping) {
-            let maxCuurentSpeed = this.currentSpeed;
-            this.isDriving = false;
-            clearInterval(this.driveIndex);
-            this.isStopping = true;
-            const decelerationTime = 1500;
-            let stopIndex = setInterval(() => {
-                this.currentSpeed -= 20;
-                if(this.currentSpeed <= 0) {
-                    console.log(`Vehicle is stopped. Maximum speed during the drive ${maxCuurentSpeed}`);
-                    clearInterval(stopIndex);
-                    return;
-                }
-                console.log(this.currentSpeed);
-            }, decelerationTime); 
-        }else {
-            console.log('Already slows down');
-        }
+    this.showStopMassage = function() {
+        console.log(`Vehicle is stopped. Maximum speed during the drive was ${this.maxCuurentSpeed}`);
     }
 }
-
 
 function Car(model, color, engine) {
-    this.model = model,
-    this.color = color,
-    this.engine = engine,
-    this.maxSpeed = 80,
-    this.isDriving = false,
-    this.isStopping = true,
-    this.currentSpeed = 0;
-    this.driveIndex = 0;
+    Vehicle.call(this, color, engine);
 
+    this.model = model;
+    this.maxSpeed = 80;
 
-    this.getInfo = function() {
-        return `model: ${this.model}, color: ${this.color}, engine: ${this.engine}, maxSpeed: ${this.maxSpeed}`
+    this.showStopMassage = function() {
+        console.log(`Car ${this.model} is stopped. Maximum speed during the drive was ${this.maxCuurentSpeed}`);
     }
+}
 
- 
-    this.drive = function() {
-        if (!this.isDriving) {
-            this.isDriving = true;
-            this.isStopping = false;
-            const increaseSpeedTime = 2000;
-            this.driveIndex = setInterval(() => {
-                this.currentSpeed += 20;
-                console.log(this.currentSpeed);
-                if (this.currentSpeed > this.maxSpeed) {
-                    console.log('Speed is too high, SLOW DOWN!')
-                } 
-            }, increaseSpeedTime); 
-        }else {
-            console.log('Already driving');
-        }
-    }  
+function Motorcycle(model, color, engin) {
+    Car.call(this, model, color, engin);
 
-    this.stop = function() {
-        if (!this.isStopping) {
-            let maxCuurentSpeed = this.currentSpeed;
-            this.isDriving = false;
-            clearInterval(this.driveIndex);
-            this.isStopping = true;
-            const decelerationTime = 1500;
-            let stopIndex = setInterval(() => {
-                this.currentSpeed -= 20;
-                if(this.currentSpeed <= 0) {
-                    console.log(`Car ${this.model} is stopped. Maximum speed during the drive ${maxCuurentSpeed}`);
-                    clearInterval(stopIndex);
-                    return;
-                }
-                console.log(this.currentSpeed);
-            }, decelerationTime); 
-        }else {
-            console.log('Already slows down');
-        }
+    this.maxSpeed = 90;
+
+    this.showStopMassage = function() {
+        console.log(`Motorcycle ${this.model} is stopped. Good drive`);
     }
-    
-    this.changeColor = function(newColor) {
-        if (newColor !== this.color) {
-            this.color = newColor;
-        } else {
-            console.log('The selected color is the same as a previous, please choose anotherone');
-        }
+}
+
+Car.prototype = Object.create(Vehicle.prototype);
+Object.defineProperty(Car.prototype, 'constructor', {
+    value: Car,
+    enumerable: false,
+    writable: true
+});
+
+Motorcycle.prototype = Object.create(Car.prototype);
+Object.defineProperty(Motorcycle.prototype, 'constructor', {
+    value: Motorcycle,
+    enumerable: false,
+    writable: true
+});
+
+
+
+Vehicle.prototype.getInfo = function() {
+    return `color: ${this.color}, engine: ${this.engine}, maxSpeed: ${this.maxSpeed}`
+}
+
+Vehicle.prototype.upgradeEngine = function(newEngine, newMaxSpeed) {
+    if (this.currentSpeed) {
+        console.log(`Can't be upgrade during moving`);
+    } else {
+        this.engine = newEngine;
+        this.maxSpeed = newMaxSpeed;
+    }
+}
+
+Vehicle.prototype.drive = function() {
+    if (!this.isDriving) {
+        this.isDriving = true;
+        this.isStopping = false;
+        this.driveIndex = setInterval(() => {
+            this.currentSpeed += 20;
+            console.log(this.currentSpeed);
+            if (this.currentSpeed > this.maxSpeed) {
+                console.log('Speed is too high, SLOW DOWN!');
+            } 
+        }, 2000); 
+    }else {
+        console.log('Already driving');
+    }
+} 
+
+Vehicle.prototype.stop = function() {
+    if (!this.isStopping) {
+        this.isDriving = false;
+        clearInterval(this.driveIndex);
+        this.isStopping = true;
+        this.maxCuurentSpeed = this.currentSpeed;
+        let stopIndex = setInterval(() => {
+            this.currentSpeed -= 20;
+            if(this.currentSpeed <= 0) {
+                this.showStopMassage();
+                clearInterval(stopIndex);
+                return;
+            }
+            console.log(this.currentSpeed);
+        }, 1500); 
+    }else {
+        console.log('Already slows down');
     }
 }
 
 
-function Motorcycle( model, color, engine) {
-    this.model = model,
-    this.color = color,
-    this.engine = engine,
-    this.maxSpeed = 90,
-    this.isDriving = false,
-    this.isStopping = true,
-    this.currentSpeed = 0;
-    this.driveIndex = 0;
-
-
-    this.getInfo = function() {
-        return `model: ${this.model}, color: ${this.color}, engine: ${this.engine}, maxSpeed: ${this.maxSpeed}`
-    }
-
-    this.drive = function() {
-        if (!this.isDriving) {
-            this.isDriving = true;
-            this.isStopping = false;
-            const increaseSpeedTime = 2000;
-            this.driveIndex = setInterval(() => {
-                this.currentSpeed += 20;
-                console.log(this.currentSpeed);
-                if (this.currentSpeed > this.maxSpeed) {
-                    console.log('Speed is too high, SLOW DOWN!')
-                } 
-            }, increaseSpeedTime); 
-        }else {
-            console.log('Already driving');
-        }
-    }  
-
-
-    this.stop = function() {
-        if (!this.isStopping) {
-            this.isDriving = false;
-            clearInterval(this.driveIndex);
-            this.isStopping = true;
-            const decelerationTime = 1500;
-            let stopIndex = setInterval(() => {
-                this.currentSpeed -= 20;
-                if(this.currentSpeed <= 0) {
-                    console.log(`Motorcycle ${this.model} is stopped. Good drive`);
-                    clearInterval(stopIndex);
-                    return;
-                }
-                console.log(this.currentSpeed);
-            }, decelerationTime); 
-        }else {
-            console.log('Already slows down');
-        }
-    }    
+Car.prototype.getInfo = function() {
+    return `model: ${this.model}, color: ${this.color}, engine: ${this.engine}, maxSpeed: ${this.maxSpeed}`
 }
 
-let v = new Vehicle('green', 'v4');
-let c = new Car('audi', 'red', 'v4');
-let m = new Motorcycle('Yamaha', 'blue', 'v3');
+Car.prototype.changeColor = function(newColor) {
+    if (newColor !== this.color) {
+        this.color = newColor;
+    } else {
+        console.log('The selected color is the same as a previous, please choose anotherone');
+    }
+}
+
+
+
+
+
+let v = new Vehicle('black', 'v4');
+let c = new Car('audi', 'red', 'v5');
+let m = new Motorcycle('Suzuki', 'yellow', 'v8')
