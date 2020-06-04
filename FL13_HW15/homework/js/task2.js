@@ -26,8 +26,9 @@ function Car(model, color, engine) {
 }
 
 function Motorcycle(model, color, engin) {
-    Car.call(this, model, color, engin);
+    Vehicle.call(this, color, engin);
 
+    this.model = model;
     this.maxSpeed = 90;
 
     this.showStopMassage = function() {
@@ -104,6 +105,8 @@ Vehicle.prototype.stop = function() {
 Car.prototype.getInfo = function() {
     return `model: ${this.model}, color: ${this.color}, engine: ${this.engine}, maxSpeed: ${this.maxSpeed}`
 }
+
+Motorcycle.prototype.getInfo = Car.prototype.getInfo;
 
 Car.prototype.changeColor = function(newColor) {
     if (newColor !== this.color) {
