@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 45px;
+    padding: 20px 0;
+
+}
+
+main {
+    text-align: center;
+}
+
+button {
+    height: 246px;
+    vertical-align: bottom;
+    background: #f7f7f7;
+    margin: 0 15px;
+}
+
+button:active {
+    border: 1px solid black;
+}
+
+#score {
+    margin: 70px auto;
+    font-size: 35px;
+}
+
+#rules {
+    text-align: center;
+}
+
+h2 {
+    margin: 20px auto;
+    font-size: 28px;
+    text-decoration: underline red; 
+}
+
+li {
+    font-size: 20px;
+    list-style-type: none;
+}
+
+.reset {
+    font-size: 30px;
+}
+
+footer {
+    text-align: center;
+}
