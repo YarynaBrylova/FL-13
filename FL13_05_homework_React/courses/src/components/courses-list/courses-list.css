@@ -1,0 +1,11 @@
+.courses-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.courses-item {
+        background: white;
+        padding: 10px 0;
+        margin: 5px 0;
+        width: 100%;
+}

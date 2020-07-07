@@ -1,0 +1,45 @@
+.hiden {
+    display: none;
+}
+
+.show {
+    display: inline-block;
+}
+
+.courses-list-item span{
+    width: 100%;
+    display: inline-block;
+}
+
+.data,
+.duration, 
+.additional-function {
+    width: 10%;
+    padding: 0 20px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.duration, 
+.additional-function{
+    width: 5%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.name {
+    width: 20%;
+    padding: 0 20px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.description {
+    width: 46%;
+    padding: 0 20px;
+    display: inline-block;
+    vertical-align: middle;
+}

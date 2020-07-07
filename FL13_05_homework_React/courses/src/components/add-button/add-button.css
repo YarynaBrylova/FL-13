@@ -1,0 +1,10 @@
+.add-button {
+    width: 25%;
+    margin: 40px 0 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+    background: linear-gradient(rgb(80, 221, 221), rgb(31, 107, 107));
+}
