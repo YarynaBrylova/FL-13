@@ -1,0 +1,26 @@
+<div class='article-form'>
+    <h1>
+        Create News
+    </h1>
+<!-- ng model - слухаємо поле форми -->
+    <form action="">
+        <div class='left-form-block'>
+            <label for="heading">Heading</label><br>
+            <input [(ngModel)]="title" type="text" id="heading" name="title"><br>
+            <label for="description">Short description</label><br>
+            <input [(ngModel)]="description" type="text" id="description" name="description"><br>
+            <label for="content">Content</label><br>
+            <textarea [(ngModel)]="content" name="content" id="content" cols="30" rows="10" ></textarea><br>
+        </div>
+        <div class='right-form-block'>
+            <label for="date">Date</label><br>
+            <input [(ngModel)]="date" type="date" id="date" placeholder="" name="date"><br>
+            <label for="author">Author</label><br>
+            <input [(ngModel)]="author" type="text" id="author" name="author"><br>
+            <label for="source-url">Source URL</label><br>
+            <input [(ngModel)]="source" type="text" id="source-url" name="source"><br>
+            <button type="submit" value="Submit" id="submit" (click)="addArticle()">Save</button>
+            <button type="cancel" value="Cancel" id="cancel">Cancel</button>
+        </div>
+    </form>
+</div>

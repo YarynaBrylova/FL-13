@@ -1,0 +1,17 @@
+    <header>
+        <h1>Title</h1>
+        <div class="main">
+            <select name="source" id="source">
+                <option value="source_1">source 1</option>
+                <option value="source_2">source 2</option>
+                <option value="source_3">source 3</option>
+                <option value="source_4">source 4</option>
+            </select>
+            <div class="filter">
+                <input type="text" placeholder="Type your text" id="filter-input">
+                <button id="filter-button">Filter</button>
+            </div>
+            <button id="add-article-button" (click)="createArticle()">Add article</button>
+        </div>
+    </header>
+    <app-article></app-article>

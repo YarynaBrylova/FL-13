@@ -1,0 +1,31 @@
+<div class="container">
+    <!-- <header>
+        <h1>Title</h1>
+        <div class="main">
+            <select name="source" id="source">
+                <option value="source_1">source 1</option>
+                <option value="source_2">source 2</option>
+                <option value="source_3">source 3</option>
+                <option value="source_4">source 4</option>
+            </select>
+            <div class="filter">
+                <input type="text" placeholder="Type your text" id="filter-input">
+                <button id="filter-button">Filter</button>
+            </div>
+            <button id="add-article-button">Add article</button>
+        </div>
+    </header>
+    <hr> -->
+    <!-- listen variable onAdd and call updateArticle when onAdd is changed -->
+    <!-- when we call empty method - without params - we lose param that we wanted to pass -->
+    <!-- <app-article-form
+    (onAdd)="updateArticles($event)"
+    ></app-article-form>    
+    <hr> -->
+<!-- байндимо змінну article, бо а - це обєкт іщоб з ним працювати потрібно байднити article -->
+    <!-- <app-article
+    *ngFor = "let a of articles"
+    [article]="a"
+    ></app-article> -->
+    <router-outlet></router-outlet>
+</div>
